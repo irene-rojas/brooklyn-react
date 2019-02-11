@@ -19,6 +19,8 @@ class App extends Component {
             console.log(targetName);
     }
 
+    // onClick
+
   render() {
     return (
       <div className="App">
