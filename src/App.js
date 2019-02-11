@@ -14,13 +14,12 @@ class App extends Component {
             this.setState({
                 targetName: targetName,
             });
-            console.log(this.state.targetName);
+            console.log(targetName);
     }
 
   render() {
     return (
       <div className="App">
-
 
 
       </div>
