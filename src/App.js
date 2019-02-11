@@ -19,7 +19,7 @@ class App extends Component {
             console.log(targetName);
     }
 
-    // onClick
+    // onKeyUp
 
   render() {
     return (
