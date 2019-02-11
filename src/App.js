@@ -21,6 +21,18 @@ class App extends Component {
 
     onKeyUp = (event) => {
         event.preventDefault();
+        if (event.key) {
+            this.setState({
+                guessRemain: this.state.guessRemain - 1,
+            });
+        }
+        if (this.state.guessRemain === 0) {
+            console.log("too bad");
+            this.setState({
+                guessRemain: 10
+            });
+            this.componentDidMount();
+        }
         console.log(event.key);
     }
 
@@ -38,6 +50,12 @@ class App extends Component {
             Letters guessed:
             <br></br>
             <input onKeyUp={this.onKeyUp} />
+        </div>
+
+        <div>
+            Guesses remaining:
+            <br></br>
+            {this.state.guessRemain}
         </div>
 
       </div>
