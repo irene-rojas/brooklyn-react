@@ -7,7 +7,7 @@ class App extends Component {
         names: ['JAKE', 'AMY', 'GINA', 'ROSA', 'CHARLES', 'TERRY', 'HOLT'],
         targetName: "",
         guessRemain: 10,
-        lettersGuessed: ""
+        lettersGuessed: []
     }
 
     componentDidMount() {
@@ -19,7 +19,22 @@ class App extends Component {
             console.log(targetName);
     }
 
-    // onKeyUp
+    onKeyUp = (event) => {
+        event.preventDefault();
+        if (event.key) {
+            this.setState({
+                guessRemain: this.state.guessRemain - 1,
+            });
+        }
+        if (this.state.guessRemain === 0) {
+            console.log("too bad");
+            this.setState({
+                guessRemain: 10
+            });
+            this.componentDidMount();
+        }
+        console.log(event.key);
+    }
 
   render() {
     return (
@@ -29,6 +44,18 @@ class App extends Component {
             You will be seen by:
             <br></br>
             {this.state.targetName}
+        </div>
+
+        <div>
+            Letters guessed:
+            <br></br>
+            <input onKeyUp={this.onKeyUp} />
+        </div>
+
+        <div>
+            Guesses remaining:
+            <br></br>
+            {this.state.guessRemain}
         </div>
 
       </div>
