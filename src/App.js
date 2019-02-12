@@ -63,8 +63,8 @@ class App extends Component {
             <br></br>
             <input onKeyUp={this.onKeyUp} />
             <br></br>
-            {this.state.lettersGuessed}
-            {/* redundant */}
+            [{this.state.lettersGuessed}]
+            {/* redundant? */}
         </div>
 
         <div>
