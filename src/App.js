@@ -41,7 +41,7 @@ class App extends Component {
             });
             this.componentDidMount();
         }
-        console.log(`${letter} line42`);
+        console.log(`${letter} end of onKeyUp`);
     }
 
 
