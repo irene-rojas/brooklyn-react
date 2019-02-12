@@ -8,6 +8,7 @@ class App extends Component {
         targetName: "",
         guessRemain: 10,
         lettersGuessed: []
+        // necessary?
     }
 
     componentDidMount() {
@@ -27,6 +28,7 @@ class App extends Component {
         if (letter) {
             this.setState({
                 guessRemain: this.state.guessRemain - 1,
+                lettersGuessed: this.state.lettersGuessed + letter
             });
             // if letter is in targetName, replace dash with letter
             if (targetName.includes(letter)) {
@@ -37,7 +39,8 @@ class App extends Component {
         if (this.state.guessRemain === 0) {
             console.log("too bad");
             this.setState({
-                guessRemain: 10
+                guessRemain: 10,
+                lettersGuessed: []
             });
             this.componentDidMount();
         }
@@ -55,11 +58,17 @@ class App extends Component {
             {this.state.targetName}
         </div>
 
+        <br></br>
+
         <div>
             Letters guessed:
             <br></br>
             <input onKeyUp={this.onKeyUp} />
+            <br></br>
+            Letters guessed in this round: [{this.state.lettersGuessed}]
         </div>
+
+        <br></br>
 
         <div>
             Guesses remaining:
