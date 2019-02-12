@@ -25,6 +25,17 @@ class App extends Component {
             this.setState({
                 guessRemain: this.state.guessRemain - 1,
             });
+            // compareLetters logic here
+                // alphabet letters found
+                // change dash to letter
+                // for loop?
+                const targetName = this.state.targetName;
+            for (var i = 0; i < targetName.length; i++) {
+                if (targetName[i] === event.key) {
+                    // change dash to letter
+                }
+            }
+
         }
         if (this.state.guessRemain === 0) {
             console.log("too bad");
