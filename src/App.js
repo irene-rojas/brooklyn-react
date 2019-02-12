@@ -21,15 +21,19 @@ class App extends Component {
 
     onKeyUp = (event) => {
         event.preventDefault();
-        let targetName = this.state.targetName;
         let letter = event.key;
+        let targetName = this.state.targetName;
 
         if (letter) {
             this.setState({
                 guessRemain: this.state.guessRemain - 1,
             });
             // if letter is in targetName, replace dash with letter
-            
+            if (targetName.includes(letter)) {
+                console.log("true");
+            }
+
+
         }
         if (this.state.guessRemain === 0) {
             console.log("too bad");
@@ -38,7 +42,7 @@ class App extends Component {
             });
             this.componentDidMount();
         }
-        console.log(letter);
+        console.log(`${letter} line42`);
     }
 
 
