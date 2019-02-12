@@ -30,6 +30,7 @@ class App extends Component {
             });
             // if letter is in targetName, replace dash with letter
             if (targetName.includes(letter)) {
+                // console log to find right syntax
                 console.log("true");
             }
         }
