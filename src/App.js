@@ -32,8 +32,6 @@ class App extends Component {
             if (targetName.includes(letter)) {
                 console.log("true");
             }
-
-
         }
         if (this.state.guessRemain === 0) {
             console.log("too bad");
