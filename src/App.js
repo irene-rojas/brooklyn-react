@@ -37,6 +37,7 @@ class App extends Component {
             if (targetName.includes(letter)) {
                 // console log to find right syntax for now
                 console.log("yup");
+                // temporary variable that contains dashes and letters?
             }
         }
         if (guessRemain === 0) {
