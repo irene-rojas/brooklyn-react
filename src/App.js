@@ -6,15 +6,16 @@ class App extends Component {
     state = {
         names: ['JAKE', 'AMY', 'GINA', 'ROSA', 'CHARLES', 'TERRY', 'HOLT'],
         targetName: "",
+        // targetNameDashes: "",
         guessRemain: 10,
         lettersGuessed: []
-        // necessary?
     }
 
     componentDidMount() {
         let targetName = this.state.names[Math.floor(Math.random()*this.state.names.length)];
             this.setState({
-                targetName: targetName.replace(/[a-zA-Z]/gi , '-').toUpperCase(),
+                targetName: targetName,
+                // targetNameDashes: targetName.replace(/[a-zA-Z]/gi , '-').toUpperCase(),
                 // The flags 'g' and 'i' are for global search and case insensitive search
             });
             console.log(targetName);
@@ -22,21 +23,23 @@ class App extends Component {
 
     onKeyUp = (event) => {
         event.preventDefault();
-        let letter = event.key;
+        let letter = event.key.toUpperCase();
         let targetName = this.state.targetName;
+        let guessRemain = this.state.guessRemain;
+        let lettersGuessed = this.state.lettersGuessed;
 
         if (letter) {
             this.setState({
-                guessRemain: this.state.guessRemain - 1,
-                lettersGuessed: this.state.lettersGuessed + letter
+                guessRemain: guessRemain - 1,
+                lettersGuessed: lettersGuessed + letter
             });
             // if letter is in targetName, replace dash with letter
             if (targetName.includes(letter)) {
-                // console log to find right syntax
-                console.log("true");
+                // console log to find right syntax for now
+                console.log("yup");
             }
         }
-        if (this.state.guessRemain === 0) {
+        if (guessRemain === 0) {
             console.log("too bad");
             this.setState({
                 guessRemain: 10,
@@ -55,7 +58,9 @@ class App extends Component {
         <div>
             You will be seen by:
             <br></br>
-            {this.state.targetName}
+            {this.state.targetName.replace(/[a-zA-Z]/gi , '-').toUpperCase()}
+            {/* The flags 'g' and 'i' are for global search and case insensitive search */}
+
         </div>
 
         <br></br>
@@ -65,7 +70,9 @@ class App extends Component {
             <br></br>
             <input onKeyUp={this.onKeyUp} />
             <br></br>
-            Letters guessed in this round: [{this.state.lettersGuessed}]
+            Letters guessed in this round:
+            <br></br> 
+            [ {this.state.lettersGuessed} ]
         </div>
 
         <br></br>
