@@ -38,7 +38,11 @@ class App extends Component {
                 console.log("yup");
                 let targetNameDashes = this.state.targetNameDashes;
                 // temporary variable that contains dashes and letters?
-                targetNameDashes.replace(/-/gi, letter).toUpperCase();
+                targetNameDashes.replace(/'-'/gi, letter).toUpperCase();
+                this.setState({
+                    targetNameDashes: targetNameDashes
+                    // does it need a callback to update?
+                });
             }
         }
         if (guessRemain === 0) {
@@ -61,7 +65,6 @@ class App extends Component {
             You will be seen by:
             <br></br>
             {this.state.targetNameDashes}
-            {/* The flags 'g' and 'i' are for global search and case insensitive search */}
 
         </div>
 
