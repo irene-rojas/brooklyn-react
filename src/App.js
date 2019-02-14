@@ -6,7 +6,7 @@ class App extends Component {
     state = {
         names: ['JAKE', 'AMY', 'GINA', 'ROSA', 'CHARLES', 'TERRY', 'HOLT'],
         targetName: "",
-        // targetNameDashes: "",
+        targetNameDashes: "",
         guessRemain: 10,
         lettersGuessed: []
     }
@@ -15,7 +15,7 @@ class App extends Component {
         let targetName = this.state.names[Math.floor(Math.random()*this.state.names.length)];
             this.setState({
                 targetName: targetName,
-                // targetNameDashes: targetName.replace(/[a-zA-Z]/gi , '-').toUpperCase(),
+                targetNameDashes: targetName.replace(/[a-zA-Z]/gi , '-').toUpperCase(),
                 // The flags 'g' and 'i' are for global search and case insensitive search
             });
             console.log(targetName);
@@ -35,9 +35,14 @@ class App extends Component {
             });
             // if letter is in targetName, replace dash with letter
             if (targetName.includes(letter)) {
-                // console log to find right syntax for now
                 console.log("yup");
+                let targetNameDashes = this.state.targetNameDashes;
                 // temporary variable that contains dashes and letters?
+                targetNameDashes.replace(/-/gi, letter).toUpperCase();
+                this.setState({
+                    targetNameDashes: targetNameDashes
+                    // does it need a callback to update?
+                });
             }
         }
         if (guessRemain === 0) {
@@ -59,8 +64,7 @@ class App extends Component {
         <div>
             You will be seen by:
             <br></br>
-            {this.state.targetName.replace(/[a-zA-Z]/gi , '-').toUpperCase()}
-            {/* The flags 'g' and 'i' are for global search and case insensitive search */}
+            {this.state.targetNameDashes}
 
         </div>
 
