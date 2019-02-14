@@ -38,10 +38,8 @@ class App extends Component {
                 console.log("yup");
                 let targetNameDashes = this.state.targetNameDashes;
                 // temporary variable that contains dashes and letters?
-                targetNameDashes.replace(/-/gi, letter).toUpperCase();
                 this.setState({
-                    targetNameDashes: targetNameDashes
-                    // does it need a callback to update?
+                    targetNameDashes: targetNameDashes.replace(/-/gi, letter).toUpperCase(),
                 });
             }
         }
