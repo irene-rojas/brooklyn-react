@@ -3,6 +3,7 @@ import logo from "./images/b99_logo.png";
 import "./App.css";
 
 // moved it outside state
+// these do not change. do not need to be in state. state for things that change
 const names = ["JAKE", "AMY", "GINA", "ROSA", "CHARLES", "TERRY", "HOLT"];
 
 class App extends React.Component {
@@ -14,7 +15,7 @@ class App extends React.Component {
   };
 
   // utility extracted from componentDidMount
-  // so that it can be re-used later
+  // so that it can be re-used later, rather than reloading entire component
   resetGame = () => {
     let targetName = names[Math.floor(Math.random() * names.length)];
     console.log(targetName);
@@ -22,7 +23,7 @@ class App extends React.Component {
       guessRemain: 10,
       lettersGuessed: [],
       targetName: targetName,
-      targetNameDashes: new Array(targetName.length).fill("-").join("") // fill an array with hyphens
+      targetNameDashes: new Array(targetName.length).fill("-").join("") // create new array containing the letters in targetName. fill array with hyphens
     });
   };
 
@@ -42,6 +43,7 @@ class App extends React.Component {
       this.setState(
         prevState => {
           let modifiedNameDashes = String(prevState.targetNameDashes);
+            // String allows location of substrings within strings
 
           // for each character of targetName
           for (var i = 0; i < prevState.targetName.length; i++) {
@@ -85,6 +87,10 @@ class App extends React.Component {
                 <img src={logo} alt="logo" id="logo"/>
             </div>
 
+            <div className="introDiv">
+                You walk into the 99th Precinct and ask for help.
+            </div>
+
             <div className="nameDiv">
                 Guess who's been assigned to your case:
                 <br />
@@ -104,6 +110,10 @@ class App extends React.Component {
                 Guesses remaining:
                 <br />
                 {this.state.guessRemain}
+            </div>
+
+            <div className="resultDiv">
+                image goes here
             </div>
 
             {/* <code>{JSON.stringify(this.state)}</code> */}
