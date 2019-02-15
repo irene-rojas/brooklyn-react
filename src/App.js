@@ -40,6 +40,7 @@ class App extends Component {
                 // temporary variable that contains dashes and letters?
                 this.setState({
                     targetNameDashes: targetNameDashes.replace(/-/gi, letter).toUpperCase(),
+                    // turns all dashes into one selected matching letter. oops
                 });
             }
         }
