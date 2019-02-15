@@ -76,40 +76,43 @@ class App extends React.Component {
     }
   };
 
+    // need a reward!
+
   render() {
     return (
       <div className="App">
 
-        <div className="logoDiv">
-            <img src={logo} alt="logo"/>
+        <div className="masterDiv"> 
+
+            <div className="logoDiv">
+                <img src={logo} alt="logo" id="logo"/>
+            </div>
+
+            <div className="nameDiv">
+                You will be seen by:
+                <br />
+                {this.state.targetNameDashes}
+            </div>
+
+            <div className="guessedDiv">
+                Letters guessed:
+                <br />
+                <input onKeyUp={this.onKeyUp} />
+                <br />
+                Letters guessed in this round:
+                <br /> [ {this.state.lettersGuessed} ]
+            </div>
+
+            <div className="remainDiv">
+                Guesses remaining:
+                <br />
+                {this.state.guessRemain}
+            </div>
+
+            {/* <code>{JSON.stringify(this.state)}</code> */}
+
         </div>
 
-        <div>
-          You will be seen by:
-          <br />
-          {this.state.targetNameDashes}
-        </div>
-
-        <br />
-
-        <div>
-          Letters guessed:
-          <br />
-          <input onKeyUp={this.onKeyUp} />
-          <br />
-          Letters guessed in this round:
-          <br />[ {this.state.lettersGuessed} ]
-        </div>
-
-        <br />
-
-        <div>
-          Guesses remaining:
-          <br />
-          {this.state.guessRemain}
-        </div>
-
-        {/* <code>{JSON.stringify(this.state)}</code> */}
       </div>
     );
   }
