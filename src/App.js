@@ -1,6 +1,4 @@
 import React from "react";
-// import ReactDOM from "react-dom";
-// import "./styles.css";
 
 // moved it outside state
 const names = ["JAKE", "AMY", "GINA", "ROSA", "CHARLES", "TERRY", "HOLT"];
@@ -111,7 +109,3 @@ class App extends React.Component {
 }
 
 export default App;
-
-
-// const rootElement = document.getElementById("root");
-// ReactDOM.render(<App />, rootElement);
