@@ -1,4 +1,6 @@
 import React from "react";
+import logo from "./images/b99_logo.png";
+import "./App.css";
 
 // moved it outside state
 const names = ["JAKE", "AMY", "GINA", "ROSA", "CHARLES", "TERRY", "HOLT"];
@@ -77,6 +79,11 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
+
+        <div className="logoDiv">
+            <img src={logo} alt="logo"/>
+        </div>
+
         <div>
           You will be seen by:
           <br />
