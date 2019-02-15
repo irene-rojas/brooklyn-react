@@ -1,95 +1,117 @@
-import React, { Component } from 'react';
-import './App.css';
+import React from "react";
+// import ReactDOM from "react-dom";
+// import "./styles.css";
 
-class App extends Component {
+// moved it outside state
+const names = ["JAKE", "AMY", "GINA", "ROSA", "CHARLES", "TERRY", "HOLT"];
 
-    state = {
-        names: ['JAKE', 'AMY', 'GINA', 'ROSA', 'CHARLES', 'TERRY', 'HOLT'],
-        targetName: "",
-        targetNameDashes: "",
-        guessRemain: 10,
-        lettersGuessed: []
-    }
+class App extends React.Component {
+  state = {
+    targetName: "",
+    targetNameDashes: "",
+    guessRemain: 10,
+    lettersGuessed: []
+  };
 
-    componentDidMount() {
-        let targetName = this.state.names[Math.floor(Math.random()*this.state.names.length)];
-            this.setState({
-                targetName: targetName,
-                targetNameDashes: targetName.replace(/[a-zA-Z]/gi , '-').toUpperCase(),
-                // The flags 'g' and 'i' are for global search and case insensitive search
-            });
-            console.log(targetName);
-    }
+  // utility extracted from componentDidMount
+  // so that it can be re-used later
+  resetGame = () => {
+    let targetName = names[Math.floor(Math.random() * names.length)];
+    console.log(targetName);
+    this.setState({
+      guessRemain: 10,
+      lettersGuessed: [],
+      targetName: targetName,
+      targetNameDashes: new Array(targetName.length).fill("-").join("") // fill an array with hyphens
+    });
+  };
 
-    onKeyUp = (event) => {
-        event.preventDefault();
-        let letter = event.key.toUpperCase();
-        let targetName = this.state.targetName;
-        let guessRemain = this.state.guessRemain;
-        let lettersGuessed = this.state.lettersGuessed;
+  componentDidMount() {
+    // call the utility
+    this.resetGame();
+  }
 
-        if (letter) {
-            this.setState({
-                guessRemain: guessRemain - 1,
-                lettersGuessed: lettersGuessed + letter
-            });
-            // if letter is in targetName, replace dash with letter
-            if (targetName.includes(letter)) {
-                console.log("yup");
-                let targetNameDashes = this.state.targetNameDashes;
-                // temporary variable that contains dashes and letters?
-                this.setState({
-                    targetNameDashes: targetNameDashes.replace(/-/gi, letter).toUpperCase(),
-                    // turns all dashes into one selected matching letter. oops
-                });
+  onKeyUp = event => {
+    event.preventDefault();
+    let letter = event.key.toUpperCase();
+
+    // TODO: provide more logic to avoid bad key strokes
+    // for example backspace should not count
+
+    if (letter) {
+      this.setState(
+        prevState => {
+          let modifiedNameDashes = String(prevState.targetNameDashes);
+
+          // for each character of targetName
+          for (var i = 0; i < prevState.targetName.length; i++) {
+            // check if this character at index i matched the key
+            if (prevState.targetName[i] === letter) {
+              // if it does
+              // remove a hyphen from modifiedNameDashes at that exact index
+              modifiedNameDashes =
+                modifiedNameDashes.substr(0, i) +
+                letter +
+                modifiedNameDashes.substr(i + 1);
             }
+          }
+          return {
+            targetNameDashes: modifiedNameDashes,
+            guessRemain: prevState.guessRemain - 1,
+            lettersGuessed: [...prevState.lettersGuessed, letter]
+          };
+        },
+        // callback after the state update is done
+        () => {
+          // won
+          if (this.state.targetNameDashes === this.state.targetName) {
+            console.log("Nice!");
+          }
+          // lost
+          if (this.state.guessRemain === 0) {
+            this.resetGame();
+          }
         }
-        if (guessRemain === 0) {
-            console.log("too bad");
-            this.setState({
-                guessRemain: 10,
-                lettersGuessed: []
-            });
-            this.componentDidMount();
-        }
-        console.log(`${letter} end of onKeyUp`);
+      );
     }
-
+  };
 
   render() {
     return (
       <div className="App">
-
         <div>
-            You will be seen by:
-            <br></br>
-            {this.state.targetNameDashes}
-
+          You will be seen by:
+          <br />
+          {this.state.targetNameDashes}
         </div>
 
-        <br></br>
+        <br />
 
         <div>
-            Letters guessed:
-            <br></br>
-            <input onKeyUp={this.onKeyUp} />
-            <br></br>
-            Letters guessed in this round:
-            <br></br> 
-            [ {this.state.lettersGuessed} ]
+          Letters guessed:
+          <br />
+          <input onKeyUp={this.onKeyUp} />
+          <br />
+          Letters guessed in this round:
+          <br />[ {this.state.lettersGuessed} ]
         </div>
 
-        <br></br>
+        <br />
 
         <div>
-            Guesses remaining:
-            <br></br>
-            {this.state.guessRemain}
+          Guesses remaining:
+          <br />
+          {this.state.guessRemain}
         </div>
 
+        {/* <code>{JSON.stringify(this.state)}</code> */}
       </div>
     );
   }
 }
 
 export default App;
+
+
+// const rootElement = document.getElementById("root");
+// ReactDOM.render(<App />, rootElement);
