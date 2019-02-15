@@ -31,7 +31,7 @@ class App extends React.Component {
     this.resetGame();
   }
 
-  onKeyUp = event => {
+  onKeyUp = (event) => {
     event.preventDefault();
     let letter = event.key.toUpperCase();
 
@@ -49,10 +49,7 @@ class App extends React.Component {
             if (prevState.targetName[i] === letter) {
               // if it does
               // remove a hyphen from modifiedNameDashes at that exact index
-              modifiedNameDashes =
-                modifiedNameDashes.substr(0, i) +
-                letter +
-                modifiedNameDashes.substr(i + 1);
+              modifiedNameDashes = modifiedNameDashes.substr(0, i) + letter + modifiedNameDashes.substr(i + 1);
             }
           }
           return {
@@ -66,6 +63,7 @@ class App extends React.Component {
           // won
           if (this.state.targetNameDashes === this.state.targetName) {
             console.log("Nice!");
+            // need a reward!
           }
           // lost
           if (this.state.guessRemain === 0) {
@@ -76,7 +74,6 @@ class App extends React.Component {
     }
   };
 
-    // need a reward!
 
   render() {
     return (
@@ -89,7 +86,7 @@ class App extends React.Component {
             </div>
 
             <div className="nameDiv">
-                You will be seen by:
+                Guess who's been assigned to your case:
                 <br />
                 {this.state.targetNameDashes}
             </div>
