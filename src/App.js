@@ -1,7 +1,7 @@
 import React from "react";
 import logo from "./images/b99_logo.png";
 import "./App.css";
-import Reward from "./Reward/Reward";
+import Person from "./Person/Person";
 
 // moved it outside state
 // these do not change. do not need to be in state. state for things that change
@@ -116,7 +116,7 @@ class App extends React.Component {
             <div className="resultDiv">
                 <hr></hr>
 
-                <Reward 
+                <Person 
                     targetName={this.state.targetName}
                 />
             </div>

@@ -14,7 +14,6 @@
     grid-column: 2/3;
     grid-row: 2/3;
     background-color: white;
-    opacity: 0.9;
     border-radius: 10px;
     border: 2px solid black;
     display: grid;
@@ -60,4 +59,5 @@
 .resultDiv {
     grid-column: 1/-1;
     grid-row: 6/7;
+    opacity: 1;
 }

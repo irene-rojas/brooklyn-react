@@ -1,4 +1,5 @@
 import React from 'react';
+import "./Person.css";
 import AMY from "./images/amy.jpg";
 import CHARLES from "./images/charles.jpg";
 import GINA from "./images/gina.jpg";
@@ -7,30 +8,24 @@ import JAKE from "./images/jake.jpg";
 import ROSA from "./images/rosa.jpg";
 import TERRY from "./images/terry.jpg";
 
-const targetName = {
-    "Amy": AMY,
-    "Charles": CHARLES,
-    "Gina": GINA,
-    "Holt": HOLT,
-    "Jake": JAKE,
-    "Rosa": ROSA,
-    "Terry": TERRY
+const person = {
+    "AMY": AMY,
+    "CHARLES": CHARLES,
+    "GINA": GINA,
+    "HOLT": HOLT,
+    "JAKE": JAKE,
+    "ROSA": ROSA,
+    "TERRY": TERRY
 }
 
-const Reward = (props) => {
+const Reward = (props) => (
 
-    let target = props.targetName;
-    console.log(`Reward target = ${target}`)
-
-    return (
-        <div className="rewardImg">
+        <div className="personImg">
             <img 
-                className="rewardPhoto"
-                src={targetName[props.targetName]}
+                src={person[props.targetName]}
                 alt={props.targetName}
             />
         </div>
-    )
-};
+);
 
 export default Reward;
