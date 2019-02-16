@@ -67,9 +67,7 @@ class App extends React.Component {
           // won
           if (this.state.targetNameDashes === this.state.targetName) {
             console.log("Nice!");
-            // need a reward!
           }
-          // lost
           if (this.state.guessRemain === 0) {
             this.resetGame();
           }
@@ -105,7 +103,7 @@ class App extends React.Component {
                 <div className="guessedDiv">
                     Enter letters to guess their name:
                     <br />
-                    <input onKeyUp={this.onKeyUp} value={this.state.lettersGuessed.join("")} />
+                    <input onKeyUp={this.onKeyUp} value={this.state.lettersGuessed.join("").toUpperCase()} />
                 </div>
 
                 <div className="remainDiv">
