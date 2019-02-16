@@ -11,8 +11,9 @@ class App extends React.Component {
   state = {
     targetName: "",
     targetNameDashes: "",
+    inputVal: null,
     guessRemain: 10,
-    lettersGuessed: []
+    lettersGuessed: [],
   };
 
   // utility extracted from componentDidMount
@@ -23,6 +24,7 @@ class App extends React.Component {
     this.setState({
       guessRemain: 10,
       lettersGuessed: [],
+      inputVal: null,
       targetName: targetName,
       targetNameDashes: new Array(targetName.length).fill("-").join("") // create new array containing the letters in targetName. fill array with hyphens
     });
@@ -104,7 +106,8 @@ class App extends React.Component {
                 <div className="guessedDiv">
                     Enter letters to guess their name:
                     <br />
-                    <input onKeyUp={this.onKeyUp} />
+                    <input onKeyUp={this.onKeyUp} value={this.state.inputVal}/>
+                    {/* input is not clearing on button click */}
                     <br />
                     Letters guessed in this round:
                     <br /> [ {this.state.lettersGuessed} ]
