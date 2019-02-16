@@ -8,11 +8,12 @@ import Person from "./Person/Person";
 const names = ["JAKE", "AMY", "GINA", "ROSA", "CHARLES", "TERRY", "HOLT"];
 
 class App extends React.Component {
+
   state = {
     targetName: "",
     targetNameDashes: "",
     guessRemain: 10,
-    lettersGuessed: []
+    lettersGuessed: [],
   };
 
   // utility extracted from componentDidMount
@@ -58,7 +59,7 @@ class App extends React.Component {
           return {
             targetNameDashes: modifiedNameDashes,
             guessRemain: prevState.guessRemain - 1,
-            lettersGuessed: [...prevState.lettersGuessed, letter]
+            lettersGuessed: [...prevState.lettersGuessed, letter],
           };
         },
         // callback after the state update is done
@@ -96,15 +97,15 @@ class App extends React.Component {
                 </div>
 
                 <div className="nameDiv">
-                    Who do you meet first?
-                    <br />
+                    The first person you meet is 
+                    <br></br>
                     {this.state.targetNameDashes}
                 </div>
 
                 <div className="guessedDiv">
-                    Letters guessed:
+                    Enter letters to guess their name:
                     <br />
-                    <input onKeyUp={this.onKeyUp} />
+                    <input onKeyUp={this.onKeyUp} value={this.state.lettersGuessed.join("")} />
                     <br />
                     Letters guessed in this round:
                     <br /> [ {this.state.lettersGuessed} ]
@@ -114,11 +115,13 @@ class App extends React.Component {
                     Guesses remaining:
                     <br />
                     {this.state.guessRemain}
+                    <br />
+                    <button onClick={this.resetGame}>Want to see someone else?</button>
                 </div>
 
                 {this.state.targetNameDashes === this.state.targetName &&
                     <div className="resultDiv">
-                    <hr></hr>
+                    <hr />
                     <Person 
                         targetName={this.state.targetName}
                     />
