@@ -7,13 +7,17 @@ import JAKE from "./images/jake.jpg";
 import ROSA from "./images/rosa.jpg";
 import TERRY from "./images/terry.jpg";
 
+
 const Reward = (props) => (
 
-    // targetName = imgName
-
-
+    <div className="rewardImg">
+        <img 
+            className="rewardPhoto"
+            src={[props.targetName]}
+            alt={props.targetName}
+        />
+    </div>
 
 );
-
 
 export default Reward;
