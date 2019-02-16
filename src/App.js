@@ -114,6 +114,8 @@ class App extends React.Component {
             </div>
 
             <div className="resultDiv">
+                <hr></hr>
+                
                 <Reward 
                     targetName={this.state.targetName}
                 />

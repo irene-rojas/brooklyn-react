@@ -7,17 +7,29 @@ import JAKE from "./images/jake.jpg";
 import ROSA from "./images/rosa.jpg";
 import TERRY from "./images/terry.jpg";
 
+const imgNames = {
+    "Amy": AMY,
+    "Charles": CHARLES,
+    "Gina": GINA,
+    "Holt": HOLT,
+    "Jake": JAKE,
+    "Rosa": ROSA,
+    "Terry": TERRY
+}
 
-const Reward = (props) => (
+const Reward = (props) => {
 
-    <div className="rewardImg">
-        <img 
-            className="rewardPhoto"
-            src={[props.targetName]}
-            alt={props.targetName}
-        />
-    </div>
+    const name = props.targetName;
 
-);
+    return (
+        <div className="rewardImg">
+            <img 
+                className="rewardPhoto"
+                src={imgNames[props.name]}
+                alt={props.targetName}
+            />
+        </div>
+    )
+};
 
 export default Reward;
