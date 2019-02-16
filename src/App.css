@@ -1,8 +1,16 @@
+.parallax {
+    height: 100%;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .App {
   text-align: center;
   display: grid;
   grid-template-columns: 400px 1fr 400px;
-  grid-template-rows: 75px 1fr 200px;
+  grid-template-rows: 75px 1fr 150px;
   margin: 0 auto;
   width: 100%;
   height: 100vh;
@@ -14,12 +22,11 @@
     grid-column: 2/3;
     grid-row: 2/3;
     background-color: white;
-    opacity: 0.9;
     border-radius: 10px;
     border: 2px solid black;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: auto repeat(3, auto);
+    grid-template-rows: auto repeat(5, auto);
     padding: 10px;
 }
 
@@ -38,17 +45,31 @@
     grid-row: 1/2;
 }
 
-.nameDiv {
+.introDiv {
     grid-column: 1/-1;
     grid-row: 2/3;
+    padding: 5px;
+}
+.nameDiv {
+    grid-column: 1/-1;
+    grid-row: 3/4;
+    padding: 5px;
 }
 
 .guessedDiv {
     grid-column: 1/-1;
-    grid-row: 3/4;
+    grid-row: 4/5;
+    padding: 5px;
 }
 
 .remainDiv {
     grid-column: 1/-1;
-    grid-row: 4/5;
+    grid-row: 5/6;
+    padding: 5px;
+}
+
+.resultDiv {
+    grid-column: 1/-1;
+    grid-row: 6/7;
+    padding: 5px;
 }
