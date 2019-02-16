@@ -96,13 +96,13 @@ class App extends React.Component {
                 </div>
 
                 <div className="nameDiv">
-                    Who do you meet first?
-                    <br />
-                    Their name is {this.state.targetNameDashes}
+                    The first person you meet is 
+                    <br></br>
+                    {this.state.targetNameDashes}
                 </div>
 
                 <div className="guessedDiv">
-                    Letters guessed:
+                    Enter letters to guess their name:
                     <br />
                     <input onKeyUp={this.onKeyUp} />
                     <br />
@@ -114,11 +114,13 @@ class App extends React.Component {
                     Guesses remaining:
                     <br />
                     {this.state.guessRemain}
+                    <br />
+                    <button onClick={this.resetGame}>Want to see someone else?</button>
                 </div>
 
                 {this.state.targetNameDashes === this.state.targetName &&
                     <div className="resultDiv">
-                    <hr></hr>
+                    <hr />
                     <Person 
                         targetName={this.state.targetName}
                     />
