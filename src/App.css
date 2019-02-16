@@ -1,3 +1,11 @@
+.parallax {
+    height: 100%;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .App {
   text-align: center;
   display: grid;
@@ -40,24 +48,28 @@
 .introDiv {
     grid-column: 1/-1;
     grid-row: 2/3;
+    padding: 5px;
 }
 .nameDiv {
     grid-column: 1/-1;
     grid-row: 3/4;
+    padding: 5px;
 }
 
 .guessedDiv {
     grid-column: 1/-1;
     grid-row: 4/5;
+    padding: 5px;
 }
 
 .remainDiv {
     grid-column: 1/-1;
     grid-row: 5/6;
+    padding: 5px;
 }
 
 .resultDiv {
     grid-column: 1/-1;
     grid-row: 6/7;
-    opacity: 1;
+    padding: 5px;
 }

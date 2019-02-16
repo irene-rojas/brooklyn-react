@@ -20,8 +20,9 @@ const person = {
 
 const Reward = (props) => (
 
-        <div className="personImg">
+        <div>
             <img 
+                className="personImg"
                 src={person[props.targetName]}
                 alt={props.targetName}
             />

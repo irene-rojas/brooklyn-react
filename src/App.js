@@ -80,48 +80,55 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App">
+        
+      <div className="parallax">
+      
+        <div className="App">
 
-        <div className="masterDiv"> 
+            <div className="masterDiv"> 
 
-            <div className="logoDiv">
-                <img src={logo} alt="logo" id="logo"/>
+                <div className="logoDiv">
+                    <img src={logo} alt="logo" id="logo"/>
+                </div>
+
+                <div className="introDiv">
+                    You walk into the 99th Precinct and ask for help.
+                </div>
+
+                <div className="nameDiv">
+                    Who do you meet first?
+                    <br />
+                    {this.state.targetNameDashes}
+                </div>
+
+                <div className="guessedDiv">
+                    Letters guessed:
+                    <br />
+                    <input onKeyUp={this.onKeyUp} />
+                    <br />
+                    Letters guessed in this round:
+                    <br /> [ {this.state.lettersGuessed} ]
+                </div>
+
+                <div className="remainDiv">
+                    Guesses remaining:
+                    <br />
+                    {this.state.guessRemain}
+                </div>
+
+                {this.state.targetNameDashes === this.state.targetName &&
+                    <div className="resultDiv">
+                    <hr></hr>
+                    <Person 
+                        targetName={this.state.targetName}
+                    />
+                </div>
+                }
+
+
+                {/* <code>{JSON.stringify(this.state)}</code> */}
+
             </div>
-
-            <div className="introDiv">
-                You walk into the 99th Precinct and ask for help.
-            </div>
-
-            <div className="nameDiv">
-                Guess who's been assigned to your case:
-                <br />
-                {this.state.targetNameDashes}
-            </div>
-
-            <div className="guessedDiv">
-                Letters guessed:
-                <br />
-                <input onKeyUp={this.onKeyUp} />
-                <br />
-                Letters guessed in this round:
-                <br /> [ {this.state.lettersGuessed} ]
-            </div>
-
-            <div className="remainDiv">
-                Guesses remaining:
-                <br />
-                {this.state.guessRemain}
-            </div>
-
-            <div className="resultDiv">
-                <hr></hr>
-
-                <Person 
-                    targetName={this.state.targetName}
-                />
-            </div>
-
-            {/* <code>{JSON.stringify(this.state)}</code> */}
 
         </div>
 
