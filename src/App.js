@@ -12,7 +12,6 @@ class App extends React.Component {
   state = {
     targetName: "",
     targetNameDashes: "",
-    inputVal: "",
     guessRemain: 10,
     lettersGuessed: [],
   };
@@ -25,7 +24,6 @@ class App extends React.Component {
     this.setState({
       guessRemain: 10,
       lettersGuessed: [],
-      inputVal: "",
       targetName: targetName,
       targetNameDashes: new Array(targetName.length).fill("-").join("") // create new array containing the letters in targetName. fill array with hyphens
     });
@@ -61,7 +59,7 @@ class App extends React.Component {
           return {
             targetNameDashes: modifiedNameDashes,
             guessRemain: prevState.guessRemain - 1,
-            lettersGuessed: [...prevState.lettersGuessed, letter]
+            lettersGuessed: [...prevState.lettersGuessed, letter],
           };
         },
         // callback after the state update is done
@@ -107,8 +105,7 @@ class App extends React.Component {
                 <div className="guessedDiv">
                     Enter letters to guess their name:
                     <br />
-                    <input onKeyUp={this.onKeyUp} />
-                    {/* input is not clearing on button click. value not working on clear */}
+                    <input onKeyUp={this.onKeyUp} value={this.state.lettersGuessed.join("")} />
                     <br />
                     Letters guessed in this round:
                     <br /> [ {this.state.lettersGuessed} ]
