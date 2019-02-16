@@ -7,7 +7,7 @@ import JAKE from "./images/jake.jpg";
 import ROSA from "./images/rosa.jpg";
 import TERRY from "./images/terry.jpg";
 
-const imgNames = {
+const targetName = {
     "Amy": AMY,
     "Charles": CHARLES,
     "Gina": GINA,
@@ -19,13 +19,14 @@ const imgNames = {
 
 const Reward = (props) => {
 
-    const name = props.targetName;
+    let target = props.targetName;
+    console.log(`Reward target = ${target}`)
 
     return (
         <div className="rewardImg">
             <img 
                 className="rewardPhoto"
-                src={imgNames[props.name]}
+                src={targetName[props.targetName]}
                 alt={props.targetName}
             />
         </div>
