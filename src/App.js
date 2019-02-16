@@ -106,9 +106,6 @@ class App extends React.Component {
                     Enter letters to guess their name:
                     <br />
                     <input onKeyUp={this.onKeyUp} value={this.state.lettersGuessed.join("")} />
-                    <br />
-                    Letters guessed in this round:
-                    <br /> [ {this.state.lettersGuessed} ]
                 </div>
 
                 <div className="remainDiv">
