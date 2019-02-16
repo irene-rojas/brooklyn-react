@@ -98,7 +98,7 @@ class App extends React.Component {
                 <div className="nameDiv">
                     Who do you meet first?
                     <br />
-                    {this.state.targetNameDashes}
+                    Their name is {this.state.targetNameDashes}
                 </div>
 
                 <div className="guessedDiv">
