@@ -40,6 +40,8 @@ class App extends React.Component {
 
     // TODO: provide more logic to avoid bad key strokes
     // for example backspace should not count
+    // let keyCode = event.keyCode;
+    // if (keyCode <= 46 || keyCode <= 91 )...
 
     if (letter) {
       this.setState(
