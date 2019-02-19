@@ -42,6 +42,9 @@ class App extends React.Component {
     // for example backspace should not count
     let keyCode = event.keyCode;
     if (keyCode <= 46 || keyCode >= 91 ) {
+        // this.setState({
+        //     lettersGuessed: ""
+        // })
         console.log("no meta characters");
         // this is working
     }
