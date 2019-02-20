@@ -46,6 +46,7 @@ class App extends React.Component {
         // this is working
     }
 
+
     if (letter) {
       this.setState(
         prevState => {
