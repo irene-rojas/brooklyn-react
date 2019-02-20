@@ -41,7 +41,6 @@ class App extends React.Component {
     // TODO: provide more logic to avoid bad key strokes
     // for example backspace should not count
 
-
     if (letter) {
       this.setState(
         prevState => {
