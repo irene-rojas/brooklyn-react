@@ -16,7 +16,7 @@ class App extends React.Component {
     lettersGuessed: [],
   };
 
-  // utility extracted from componentDidMount
+  // function extracted from componentDidMount
   // so that it can be re-used later, rather than reloading entire component
   resetGame = () => {
     let targetName = names[Math.floor(Math.random() * names.length)];
@@ -30,7 +30,7 @@ class App extends React.Component {
   };
 
   componentDidMount() {
-    // call the utility
+    // call the function
     this.resetGame();
   }
 
@@ -40,6 +40,7 @@ class App extends React.Component {
 
     // TODO: provide more logic to avoid bad key strokes
     // for example backspace should not count
+
 
     if (letter) {
       this.setState(
@@ -68,6 +69,7 @@ class App extends React.Component {
           if (this.state.targetNameDashes === this.state.targetName) {
             console.log("Nice!");
           }
+        //   lost = reset
           if (this.state.guessRemain === 0) {
             this.resetGame();
           }
