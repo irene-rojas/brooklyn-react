@@ -6,16 +6,19 @@
     background-size: cover;
 }
 
+background-image {
+    height: 100vh;
+}
+
+/* mobile - phones */
 .App {
-  text-align: center;
-  display: grid;
-  grid-template-columns: 400px 1fr 400px;
-  grid-template-rows: 75px 1fr 150px;
-  margin: 0 auto;
-  width: 100%;
-  height: 100vh;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 18pt;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 20px 1fr 20px;
+    grid-template-rows: 50px 1fr 50px;
+    /* grid-row-gap: 40px; */
+    text-align: center;
+    height: 100%;
 }
 
 .masterDiv {
@@ -26,17 +29,12 @@
     border: 2px solid black;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: auto 50px 80px 80px 106px auto ;
+    grid-template-rows: auto 50px 50px 60px 70px auto ;
     padding: 10px;
 }
 
-/* @font-face {
-    font-family: 'Montserrat', sans-serif;    
-    src: url('https://fonts.googleapis.com/css?family=Montserrat');
-} */
-
 #logo {
-    width: 600px;
+    width: 300px;
     margin-bottom: 0px;
 }
 
@@ -50,8 +48,8 @@
     grid-column: 1/-1;
     grid-row: 2/3;
     padding: 5px;
-    /* height: 50px; */
 }
+
 .nameDiv {
     grid-column: 1/-1;
     grid-row: 3/4;
@@ -75,3 +73,93 @@
     grid-row: 6/7;
     padding: 5px;
 }
+
+@media (max-width: 1024px) {
+    input {
+        border: 0.5px solid black;
+        border-radius: 5px;
+        margin: 5px;
+    }
+
+    button {
+        border: 0.5px solid black;
+        border-radius: 5px;
+        background-color: transparent;
+        margin: 5px;
+    }
+}
+/* end mobile */
+
+
+/* mobile - tablets */
+@media (min-width : 768px) and (max-width : 1024px) {
+    .App {
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 100px 1fr 100px;
+        grid-template-rows: 50px 1fr 50px;
+        /* grid-row-gap: 40px; */
+        text-align: center;
+        font-size: 24pt;
+        height: 100%;
+    }
+
+    .masterDiv {
+        grid-column: 2/3;
+        grid-row: 2/3;
+        background-color: white;
+        border-radius: 10px;
+        border: 2px solid black;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 100px 90px 90px 150px auto ;
+        padding: 10px;
+    }
+
+    #logo {
+        width: 500px;
+        margin-bottom: 0px;
+    }
+
+}
+/* end tablets */
+
+
+/* desktop */
+@media (min-width: 1025px) {
+    .App {
+        text-align: center;
+        display: grid;
+        grid-template-columns: 400px 1fr 400px;
+        grid-template-rows: 50px 1fr 150px;
+        margin: 0 auto;
+        width: 100%;
+        height: 100vh;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 18pt;
+    }
+
+    .masterDiv {
+        grid-column: 2/3;
+        grid-row: 2/3;
+        background-color: white;
+        border-radius: 10px;
+        border: 2px solid black;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 160px 50px 80px 80px 106px auto;
+        padding: 10px;
+    }
+
+    /* @font-face {
+        font-family: 'Montserrat', sans-serif;    
+        src: url('https://fonts.googleapis.com/css?family=Montserrat');
+    } */
+
+    #logo {
+        width: 600px;
+        margin-bottom: 0px;
+    }
+
+}
+/* end desktop */
