@@ -1,1 +1,1 @@
-Brooklyn Nine-Nine name guessing game
+Brooklyn Nine-Nine guessing game. The player is presented with a randomly-chosen character name. They enter letters to guess the name. If they complete the name, they are presented with a photo of that character. Otherwise, if the player guesses 10 letters without completing the name, they are assigned a new character name to guess. 
