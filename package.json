@@ -1,13 +1,17 @@
 {
   "name": "brooklyn-react",
   "version": "0.1.0",
+  "homepage": "http://irene-rojas.github.io/brooklyn-react",
   "private": true,
   "dependencies": {
+    "gh-pages": "^2.0.1",
     "react": "^16.8.1",
     "react-dom": "^16.8.2",
     "react-scripts": "2.1.3"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
