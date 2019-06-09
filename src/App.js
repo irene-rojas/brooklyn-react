@@ -124,9 +124,6 @@ class App extends React.Component {
                 </div>
                 }
 
-
-                {/* <code>{JSON.stringify(this.state)}</code> */}
-
             </div>
 
         </div>
